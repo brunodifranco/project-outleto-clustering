@@ -8,43 +8,28 @@ IN PROGRESS
   <img src="https://user-images.githubusercontent.com/66283452/204003651-a72b8c68-b360-40cb-8a03-eb21c2dcd3fa.jpeg" alt="drawing" width="850"/>
 </p>
 
-
 *Obs: The company and business problem are both fictitious, although the data is real.*
 
 *The in-depth Python code explanation is available in [this](https://github.com/brunodifranco/project-insuricare-ranking/blob/main/insuricare.ipynb) Jupyter Notebook.*
 
 # 1. **Outleto and Business Problem**
-<p align="justify"> Outleto is a multibrand outlet company, therefore it sells second line products of various companies at lower prices, through an E-commerce. 
+<p align="justify"> Outleto is a multibrand outlet company, meaning it sells second line products of various companies at lower prices, through an E-commerce platform. Outleto's Marketing Team noticed that some customers tend to buy more expensive products, in higher quantities and more frequently than others, therefore contributing to a high share of Outleto's total gross revenue. Because of that, Outleto's Marketing Team wishes to launch a customer loyalty program, dividing customers in clusters, on which the best customers will be placed in a cluster named Insiders. 
 
-
-
-Insuricare is an insurance company that has provided health insurance to its customers, and now they are willing to sell a new vehicle insurance to their clients. To achieve that, Insuricare conducted a research with around 305 thousand customers that bought the health insurance last year, asking each one if they would be interested in buying the new insurance. This data was stored in the company's database, alongside other customers' features. 
-
-Then, Insuricare Sales Team selected around 76 thousand new customers, which are people that didn't respond to the research, to offer the new vehicle insurance. However, due to a limit call <i>restriction*</i> Insuricare must choose a way of selecting which clients to call: </p>
-
-- Either select the customers randomly, which is the <b>baseline model</b> previously used by the company.
-  
-- Or, the Data Science Team will provide, by using a Machine Learning (ML) model, an ordered list of these new customers, based on their propensity score of buying the new insurance.
-
-<i> * Insuricare Sales Team would like to make 20,000 calls, but it can be pushed to 40,000 calls. </i>
+To achieve this goal, the Data Science Team was requested to provide a list of customers that will participate in Insiders, as well as other clusters. With that list the Marketing Team will promote actions to each cluster, in order to increase revenue, but of course focusing mostly in the Insiders cluster. In addition to that list, a business report regarding the clusters will also be delivered by the Data Science Team. </p>
 
 # 2. **Data Overview**
-The training data was collected from a PostgreSQL Database. The initial features descriptions are available below:
+The training data was collected from Kaggle in the csv format. The initial features descriptions are available below:
 
 | **Feature**          | **Definition** |
 |----------------------|----------------|
-| id                   | Unique ID for the customer|
-| gender               |Gender of the customer|
-| age                  |Age of the customer|
-| region_code          |   Unique code for the region of the customer|
-| policy_sales_channel |Anonymized Code for the channel of outreaching to the customer ie. Different Agents, Over Mail, Over Phone, In Person, etc|
-| driving_license      |0 : Customer does not have DL, 1 : Customer already has DL|
-| vehicle_age          |Age of the Vehicle|
-| vehicle_damage       |Yes : Customer got his/her vehicle damaged in the past. No : Customer didn't get his/her vehicle damaged in the past.|
-| previously_insured   |1 : Customer already has Vehicle Insurance, 0 : Customer doesn't have Vehicle Insurance|
-| annual_premium       |The amount customer needs to pay as premium in the year|
-| vintage              |Number of Days, Customer has been associated with the company|
-| response             | 1 : Customer is interested in the new insurance, 0 : Customer is not interested in the new insurance|
+|       InvoiceNo      | A 6-digit integral number uniquely assigned to each transaction |
+|       StockCode      | Product (item) code | 
+|       Description    | Product (item) name |
+|       Quantity       | The quantities of each product (item) per transaction |
+|       InvoiceDate    | The day when each transaction was generated |
+|       UnitPrice      | Unit price (product price per unit) |
+|       CustomerID     | Customer number (unique id assigned to each customer) |
+|       Country        | The name of the country where each customer residers |
 
 # 3. **Business Assumptions and Definitions**
 
