@@ -5,8 +5,9 @@ IN PROGRESS
 <p align="center">A clustering project</p>
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/66283452/198294567-6a53415a-7b3e-48ea-ab58-482d849c6309.svg" alt="drawing" width="400"/>
+  <img src="https://user-images.githubusercontent.com/66283452/204003651-a72b8c68-b360-40cb-8a03-eb21c2dcd3fa.jpeg" alt="drawing" width="850"/>
 </p>
+
 
 *Obs: The company and business problem are both fictitious, although the data is real.*
 
