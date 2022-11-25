@@ -1,19 +1,23 @@
 IN PROGRESS 
 
-<h1 align="center"> Creating a customer ranking system for an insurance company</h1>
+<h1 align="center">Customer loyalty program for E-commerce</h1>
 
-<p align="center">A learning to rank cross-sell project</p>
+<p align="center">A clustering project</p>
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/66283452/198294567-6a53415a-7b3e-48ea-ab58-482d849c6309.svg" alt="drawing" width="400"/>
 </p>
 
-*Obs: Business problem, company and data are fictitious.*
+*Obs: The company and business problem are both fictitious, although the data is real.*
 
 *The in-depth Python code explanation is available in [this](https://github.com/brunodifranco/project-insuricare-ranking/blob/main/insuricare.ipynb) Jupyter Notebook.*
 
-# 1. **Insuricare and Business Problem**
-<p align="justify"> Insuricare is an insurance company that has provided health insurance to its customers, and now they are willing to sell a new vehicle insurance to their clients. To achieve that, Insuricare conducted a research with around 305 thousand customers that bought the health insurance last year, asking each one if they would be interested in buying the new insurance. This data was stored in the company's database, alongside other customers' features. 
+# 1. **Outleto and Business Problem**
+<p align="justify"> Outleto is a multibrand outlet company, therefore it sells second line products of various companies at lower prices, through an E-commerce. 
+
+
+
+Insuricare is an insurance company that has provided health insurance to its customers, and now they are willing to sell a new vehicle insurance to their clients. To achieve that, Insuricare conducted a research with around 305 thousand customers that bought the health insurance last year, asking each one if they would be interested in buying the new insurance. This data was stored in the company's database, alongside other customers' features. 
 
 Then, Insuricare Sales Team selected around 76 thousand new customers, which are people that didn't respond to the research, to offer the new vehicle insurance. However, due to a limit call <i>restriction*</i> Insuricare must choose a way of selecting which clients to call: </p>
 
