@@ -15,7 +15,18 @@ IN PROGRESS
 # 1. **Outleto and Business Problem**
 <p align="justify"> Outleto is a multibrand outlet company, meaning it sells second line products of various companies at lower prices, through an E-commerce platform. Outleto's Marketing Team noticed that some customers tend to buy more expensive products, in higher quantities and more frequently than others, therefore contributing to a high share of Outleto's total gross revenue. Because of that, Outleto's Marketing Team wishes to launch a customer loyalty program, dividing customers in clusters, on which the best customers will be placed in a cluster named Insiders. 
 
-To achieve this goal, the Data Science Team was requested to provide a list of customers that will participate in Insiders, as well as other clusters. With that list the Marketing Team will promote actions to each cluster, in order to increase revenue, but of course focusing mostly in the Insiders cluster. In addition to that list, a business report regarding the clusters will also be delivered by the Data Science Team. </p>
+To achieve this goal, the Data Science Team was requested to provide a business report regarding the clusters, containing a list of customers that will participate in Insiders, as well as answers to the following questions: 
+  
+##### 1) **How many customers will be a part of Insiders?**
+##### 2) **How many clusters were created?**
+##### 3) **How are the customers distributed amongst the clusters?**
+##### 4) **What are these customers' main features?**
+##### 5) **What's the gross revenue percentage coming from Insiders? and what about other clusters?**
+##### 6) **How many items were purchased by each cluster?**
+   
+##### 7) **What are the requirements for a customer to be a part of Insiders? and for a customer to be removed?**
+     
+With that report the Marketing Team will promote actions to each cluster, in order to increase revenue, but of course focusing mostly in the Insiders cluster. </p>
 
 # 2. **Data Overview**
 The training data was collected from Kaggle in the csv format. The initial features descriptions are available below:
@@ -31,15 +42,17 @@ The training data was collected from Kaggle in the csv format. The initial featu
 |       CustomerID     | Customer number (unique id assigned to each customer) |
 |       Country        | The name of the country where each customer residers |
 
-# 3. **Business Assumptions and Definitions**
+# 3. **Business Assumptions**
 
-- Cross-selling is a strategy used to sell products associated with another product already owned by the customer. In this project, health insurance and vehicle insurance are the products. 
-- Learning to rank is a machine learning application. In this project, we are ranking customers in a list, from the most likely customer to buy the new insurance to the least likely one. This list will be provided by the ML model.
+- All observations on which unit_price <= 0 were removed, as we're assuming those are gifts when unit_price = 0, and when unit_price < 0 it's described as "Adjust bad debt".  
+- Some stock_code identifications weren't actual products, therefore they were removed.  
+- Both description and country columns were removed, since those aren't relevant when modelling.  
+- <p align="justify">Customer number 16446 was removed because he(she) bought 80995 items and returned them in the same day, leading to extraordinary values in other features. Other 12 customers were removed because they returned all items bought. In addition to that, three other users were also removed because they were considered to be data inconsistencies, since they had their return values greater than quantity of items bought, which doesn't make sense. <p>
 
 # 4. **Solution Plan**
 ## 4.1. How was the problem solved?
 
-<p align="justify"> To provide an ordered list of these new customers, based on their propensity score of buying the new insurance the following steps were performed: </p>
+<p align="justify"> To provide the clusters final report the following steps were performed: </p>
 
 - <b> Understanding the Business Problem</b>: Understanding the main objective Insuricare was trying to achieve and plan the solution to it. 
 
@@ -55,13 +68,15 @@ The training data was collected from Kaggle in the csv format. The initial featu
 
 - <b> Feature Selection</b>: Selecting the best features to use in the ML model by using <a href="https://towardsdatascience.com/feature-selection-using-random-forest-26d7b747597f"> Random Forest</a>. 
 
+- <b> Space Analysis and Dimensionality Reduction</b>:
+
 - <p align="justify"> <b> Machine Learning Modeling</b>: Training Classification Algorithms with cross-validation. The best model was selected to be improved via Bayesian Optimization with Optuna. More information in <a href="https://github.com/brunodifranco/project-insuricare-ranking#6-machine-learning-models">Section 6</a>. </p>
 
 - <b> Model Evaluation</b>: Evaluating the model using two metrics: Precision at K and Recall at K, as well as two curves: Cumulative Gains and Lift Curves. 
 
-- <b> Results</b>: Translating the ML model to financial and business performance.
+- <b>Cluster Exploratory Data Analysis</b>:
 
-- <p align="justify"> <b> Propensity Score List and Model Deployment </b>: Providing a full list of the 76 thousand customers sorted by propensity score, as well as a Google Sheets that returns propensity score and ranks customers (used for future customers). This is the project's <b>Data Science Product</b>, and it can be accessed from anywhere. More information in <a href="https://github.com/brunodifranco/project-insuricare-ranking#7-business-and-financial-results"> Section 7</a>. </p>
+- <p align="justify"> <b>Final Report and Deployment </b>: Providing a full list of the 76 thousand customers sorted by propensity score, as well as a Google Sheets that returns propensity score and ranks customers (used for future customers). This is the project's <b>Data Science Product</b>, and it can be accessed from anywhere. More information in <a href="https://github.com/brunodifranco/project-insuricare-ranking#7-business-and-financial-results"> Section 7</a>. </p>
   
 ## 4.2. Tools and techniques used:
 - [Python 3.10.8](https://www.python.org/downloads/release/python-3108/), [Pandas](https://pandas.pydata.org/), [Matplotlib](https://matplotlib.org/), [Seaborn](https://seaborn.pydata.org/) and [Sklearn](https://scikit-learn.org/stable/).
