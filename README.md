@@ -32,7 +32,7 @@ With that report the Marketing Team will promote actions to each cluster, in ord
 The data was collected from Kaggle in the csv format. The initial features descriptions are available below:
 
 | **Feature**          | **Definition** |
-|----------------------|----------------|
+|:--------------------:|----------------|
 |       InvoiceNo      | A 6-digit integral number uniquely assigned to each transaction |
 |       StockCode      | Product (item) code | 
 |       Description    | Product (item) name |
@@ -60,7 +60,7 @@ The data was collected from Kaggle in the csv format. The initial features descr
 
 - <b> Data Cleaning</b>: Checking data types, treating Nan's, renaming columns, dealing with outliers and filtering data.
 
-- <b> Feature Engineering</b>: Creating new features from the original ones, so that those could be used in the ML model. 
+- <b> Feature Engineering</b>: Creating new features from the original ones, so that those could be used in the ML model. More information in <a href="https://github.com/brunodifranco/project-insuricare-ranking#6-machine-learning-models">Section 5</a>.</p>
 
 - <p align="justify"> <b> Exploratory Data Analysis (EDA)</b>: Exploring the data in order to obtain business experience, look for data inconsistencies, useful business insights and find important features for the ML model. This was done by using the <a href="https://pypi.org/project/pandas-profiling/">Pandas Profiling</a> library. Two EDA profile reports are available <a href="https://pypi.org/project/pandas-profiling/"> here</a>, one still with the bad users and one without them. 
 
@@ -70,7 +70,7 @@ The data was collected from Kaggle in the csv format. The initial features descr
 
 - <b> Space Analysis and Dimensionality Reduction</b>: <a href="https://builtin.com/data-science/step-step-explanation-principal-component-analysis">PCA</a>, <a href="https://umap-learn.readthedocs.io/en/latest/">UMAP</a> and <a href="https://gdmarmerola.github.io/forest-embeddings/">Tree-Based Embedding</a> were used to get a better data separation. 
 
-- <p align="justify"> <b> Machine Learning Modeling</b>: Selecting the number of clusters (K) and then training Clustering Algorithms. More information in <a href="https://github.com/brunodifranco/project-insuricare-ranking#6-machine-learning-models">Section 6</a>. </p>
+- <p align="justify"> <b> Machine Learning Modeling</b>: Selecting the number of clusters (K) and then training Clustering Algorithms. More information in <a href="https://github.com/brunodifranco/project-insuricare-ranking#6-machine-learning-models">Section 6</a>.</p>
 
 - <b> Model Evaluation</b>: Evaluating the model by using Silhouette Score and Silhouette Visualization.
 
@@ -89,9 +89,44 @@ The data was collected from Kaggle in the csv format. The initial features descr
 - [Techniques for Feature Selection](https://machinelearningmastery.com/feature-selection-with-real-and-categorical-data/).
 - [Clustering Algorithms (K-Means,  Gaussian Mixture Models, Agglomerative Hierarchical Clustering and DBSCAN)](https://towardsdatascience.com/the-5-clustering-algorithms-data-scientists-need-to-know-a36d136ef68).
 
+# 5. **Feature Engineering**
+In total, 10 new features were created by using the original ones: 
+
+| **New Feature** | **Definition** |
+|:--------------------:|----------------|
+| Gross Revenue | Gross revenue for each customer, which is equal to quantity times unit price |
+| Average Ticket | Average monetary value spent on each purchase |
+| Recency Days | Period of time from current time to the last purchase | 
+| Max Recency Days | Max time a customer's gone without making any purchases |
+| Frequency | Average purchases made by each customer during their latest purchase period and first purchase period |
+| Purchases Quantity | Amount of times a customers's made any purchase |
+| Quantity of Products | Total of products purchased |
+| Quantity of Items | Total quantity of items purchased |
+| Returns | Amount of items returned |
+| Purchased and Returned Difference | Natural log of difference between items purchased and items returned | 
+
 # 6. **Machine Learning Models**
 
-<p align="justify"> This was the most fundamental part of this project, since it's in ML modeling where we can provide an ordered list of these new customers, based on their propensity score of buying the new insurance. Seven models were trained using cross-validation: </p>
+<p align="justify"> In order to get better data separation a few dimensionality reduction were be tested: PCA, UMAP and Tree-Based Embedding. Results were satisfactory with Tree-Based Embedding, which consists of:
+
+- Setting gross_revenue as a response variable, so it becomes a supervised learning problem; the
+- Training a Random Forest (RF) model to predict gross_revenue using all other features.
+- Plotting the embedding based on RF's leaves.
+
+In total four clustering algorithms were tested, for a number of cluster varing from 2 to 24:
+- K-Means
+- Gaussian Mixture Models (GMM) with Expectation–Maximization (EM)
+- Agglomerative Hierarchical Clustering (HC)
+- DBSCAN 
+
+The models were evaluated by silhouette score, as well as clustering vizualization. DBSCAN parameters' were optimized with Bayesian Optimization, however because it provided a very high number of clusters it was withdrawn as a possible final model. Our maximum cluster number was set to 11, due to practical purposes for Outleto's Marketing Team, so they can come up with exclusive actions to each cluster. 
+
+Results were similar for K-Means, GMM and HC for cluster 8 to 11.
+
+
+Results for were ver
+
+This was the most fundamental part of this project, since it's in ML modeling where we can provide an ordered list of these new customers, based on their propensity score of buying the new insurance. Seven models were trained using cross-validation: </p>
 
 - KNN Classifier
 - Logistic Regression
