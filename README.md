@@ -89,28 +89,6 @@ The data was collected from Kaggle in the csv format. The initial features descr
 - [Techniques for Feature Selection](https://machinelearningmastery.com/feature-selection-with-real-and-categorical-data/).
 - [Clustering Algorithms (K-Means,  Gaussian Mixture Models, Agglomerative Hierarchical Clustering and DBSCAN)](https://towardsdatascience.com/the-5-clustering-algorithms-data-scientists-need-to-know-a36d136ef68).
 
-# 5. **Top Business Insights**
-
- - ### 1st - Older customers are more likely to buy the new vehicle insurance.
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/66283452/198151697-f82a4e61-cbed-4465-849c-2cf81fd4762c.png" alt="drawing" width="800"/>
-</p>
-
---- 
-- ### 2nd - Customers with older vehicles are more likely to buy vehicle insurance.
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/66283452/198151788-1018458c-8e67-4ead-9d15-76622b4df287.png" alt="drawing" width="800"/>
-</p>
-
---- 
-
-- ### 3rd - Men are more likely to buy the new vehicle insurance than women.
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/66283452/198151862-4de5cab2-1647-4aae-bc9a-b0772e91ef18.png" alt="drawing" width="800"/>
-</p>
-
----
-
 # 6. **Machine Learning Models**
 
 <p align="justify"> This was the most fundamental part of this project, since it's in ML modeling where we can provide an ordered list of these new customers, based on their propensity score of buying the new insurance. Seven models were trained using cross-validation: </p>
@@ -229,6 +207,29 @@ The expected financial results and comparisons are shown below:
 
 As seen above the LGBM model can provide much better results in comparison to the baseline model, with an annual financial result around 172% better for 20,000 calls and 89% better for 40,000 calls, which is exactly what was shown in the Lift Curve. 
 
+# 5. **Top Business Insights**
+
+ - ### 1st - Customers from Insiders are responsible for 58.3% of total items purchased.
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/66283452/204071720-ab1d3d7c-e603-48e7-a13e-1cc0e97a4436.png" alt="drawing" width="850"/>
+</p>
+
+--- 
+- ### 2nd - Customers from Insiders are responsible for 53.5% of the of total gross revenue.
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/66283452/204071721-5af58f13-3bcc-420c-87a8-7a5ececfe2a2.png" alt="drawing" width="850"/>
+</p>
+
+--- 
+
+- ### 3rd - Customers from Insiders have a number of returns higher than other customers, on average.
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/66283452/204071722-6f5827cc-a4f8-465e-81ae-ee10981caf62.png" alt="drawing" width="850"/>
+  
+<i>That's probably because those customers buy a really high amount of items.</i>  </p>
+  
+---
+
 # 8. **Propensity Score List and Model Deployment**
 
 [![Metabase](https://img.shields.io/static/v1?style=for-the-badge&message=Metabase&color=509EE3&logo=Metabase&logoColor=FFFFFF&label=)](http://outletoapp-env.eba-ztruzhhu.us-east-1.elasticbeanstalk.com/public/dashboard/20d721e4-6c15-4538-896f-f3da4aff432b)
@@ -240,6 +241,7 @@ As seen above the LGBM model can provide much better results in comparison to th
 <i> Because the deployment was made in a free cloud (Render) it could take a few minutes for the spreadsheet to provide a response, <b> in the first request. </b> In the following requests it should respond instantly. </i>
 
 </p>
+
 
 # 9. **Conclusion**
 In this project the main objective was accomplished:
