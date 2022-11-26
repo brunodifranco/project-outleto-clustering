@@ -29,7 +29,7 @@ To achieve this goal, the Data Science Team was requested to provide a business 
 With that report the Marketing Team will promote actions to each cluster, in order to increase revenue, but of course focusing mostly in the Insiders cluster. </p>
 
 # 2. **Data Overview**
-The training data was collected from Kaggle in the csv format. The initial features descriptions are available below:
+The data was collected from Kaggle in the csv format. The initial features descriptions are available below:
 
 | **Feature**          | **Definition** |
 |----------------------|----------------|
