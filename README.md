@@ -31,6 +31,7 @@ With that report the Marketing Team will promote actions to each cluster, in ord
 # 2. **Data Overview**
 The data was collected from Kaggle in the csv format. The initial features descriptions are available below:
 
+<div align="center">
 | **Feature**          | **Definition** |
 |:--------------------:|----------------|
 |       InvoiceNo      | A 6-digit integral number uniquely assigned to each transaction |
@@ -41,6 +42,7 @@ The data was collected from Kaggle in the csv format. The initial features descr
 |       UnitPrice      | Unit price (product price per unit) |
 |       CustomerID     | Customer number (unique id assigned to each customer) |
 |       Country        | The name of the country where each customer residers |
+</div>
 
 # 3. **Business Assumptions**
 
@@ -92,6 +94,7 @@ The data was collected from Kaggle in the csv format. The initial features descr
 # 5. **Feature Engineering**
 In total, 10 new features were created by using the original ones: 
 
+<div align="center">
 | **New Feature** | **Definition** |
 |:--------------------:|----------------|
 | Gross Revenue | Gross revenue for each customer, which is equal to quantity times unit price |
@@ -104,81 +107,43 @@ In total, 10 new features were created by using the original ones:
 | Quantity of Items | Total quantity of items purchased |
 | Returns | Amount of items returned |
 | Purchased and Returned Difference | Natural log of difference between items purchased and items returned | 
+</div>
 
 # 6. **Machine Learning Models**
+<p align="justify"> In order to get better data separation a few dimensionality reduction techniques were be tested: PCA, UMAP and Tree-Based Embedding. Results were satisfactory with Tree-Based Embedding, which consists of:
 
-<p align="justify"> In order to get better data separation a few dimensionality reduction were be tested: PCA, UMAP and Tree-Based Embedding. Results were satisfactory with Tree-Based Embedding, which consists of:
-
-- Setting gross_revenue as a response variable, so it becomes a supervised learning problem; the
+- Setting gross_revenue as a response variable, so it becomes a supervised learning problem.
 - Training a Random Forest (RF) model to predict gross_revenue using all other features.
 - Plotting the embedding based on RF's leaves.
 
-In total four clustering algorithms were tested, for a number of cluster varing from 2 to 24:
+In total four clustering algorithms were tested, for a cluster number varing from 2 to 24:
 - K-Means
 - Gaussian Mixture Models (GMM) with Expectation–Maximization (EM)
 - Agglomerative Hierarchical Clustering (HC)
 - DBSCAN 
 
-The models were evaluated by silhouette score, as well as clustering vizualization. DBSCAN parameters' were optimized with Bayesian Optimization, however because it provided a very high number of clusters it was withdrawn as a possible final model. Our maximum cluster number was set to 11, due to practical purposes for Outleto's Marketing Team, so they can come up with exclusive actions to each cluster. 
+The models were evaluated by silhouette score, as well as clustering vizualization. DBSCAN had its parameters optimized with Bayesian Optimization, however because it provided a very high number of clusters it was withdrawn as a possible final model. Our maximum cluster number was set to 11, due to practical purposes for Outleto's Marketing Team, so they can come up with exclusive actions for each cluster. Results were quite similar for K-Means, GMM and HC with clusters from 8 to 11, however <b>KMeans</b> were chosen with <b>8</b> clusters, because its silhouette score is slightly better, being equal to 0.6168. 
 
-Results were similar for K-Means, GMM and HC for cluster 8 to 11.
+ </p>
 
-
-Results for were ver
-
-This was the most fundamental part of this project, since it's in ML modeling where we can provide an ordered list of these new customers, based on their propensity score of buying the new insurance. Seven models were trained using cross-validation: </p>
-
-- KNN Classifier
-- Logistic Regression
-- Random Forest Classifier
-- AdaBoost Classifier
-- CatBoost Classifier
-- XGBoost Classifier 
-- Light GBM Classifier
-
-The initial performance for all seven algorithms are displayed below:
-
-<div align="center">
-
-|         **Model**        | **Precision at K** | **Recall at K** |
-|:------------------------:|:------------------:|:---------------:|
-|    LGBM Classifier       | 0.2789 +/- 0.0003  |0.9329 +/- 0.001 |
-|    AdaBoost Classifier   | 0.2783 +/- 0.0007	|0.9309 +/- 0.0023|
-|      CatBoost Classifier | 0.2783 +/- 0.0005	|0.9311 +/- 0.0018| 
-|   XGBoost Classifier     | 0.2771 +/- 0.0006  |0.9270 +/- 0.0022|
-|    Logistic Regression   | 0.2748 +/- 0.0009  |0.9193 +/- 0.0031|
-| Random Forest Classifier | 0.2719 +/- 0.0005  |0.9096 +/- 0.0016|
-|      KNN Classifier      | 0.2392 +/- 0.0006  |0.8001 +/- 0.0019|
-</div>
-
-<i>K is either equal to 20,000 or 40,000, given our business problem. </i>
-
-<p align="justify"> The <b>Light GBM Classifier</b> model will be chosen for hyperparameter tuning, since it's by far the fastest algorithm to train and tune, whilst being the one with best results without any tuning. </p>
-
-LGBM speed in comparison to other ensemble algorithms trained in this dataset:
-- 4.7 times faster than CatBoost 
-- 7.1 times faster than XGBoost
-- 30.6 times faster than AdaBoost
-- 63.2 times faster than Random Forest
-
-<p align="justify"> At first glance the models performances don't look so great, and that's due to the short amount of variables, on which many are categorical or binary, or simply those don't contain much information. 
-
-However, <b>for this business problem</b> this isn't a major concern, since the goal here isn't finding the best possible prediction on whether a customer will buy the new insurance or not, but to <b>create a score that ranks clients in a ordered list, so that the sales team can contact them in order to sell the new vehicle insurance</b>.</p>
-
-After tuning LGBM's hyperparameters using [Bayesian Optimization with Optuna](https://optuna.readthedocs.io/en/stable/index.html) the model performance has improved on the Precision at K, and decreased on Recall at K, which was expected: 
-
-<div align="center">
-
-|         **Model**        | **Precision at K** | **Recall at K** |
-|:------------------------:|:------------------:|:---------------:|
-|      LGBM Classifier     | 0.2793 +/- 0.0005  |0.9344 +/- 0.0017| 
-
-</div>
 
 ## <i>Metrics Definition and Interpretation</i>
+ARRUMAR AQUI
+
+**In clustering problems, the hyperparameter tuning comes before modelling, as we're selecting the number of clusters (K) for most models.** There're two properties we look for when creating clusters:
+
+- **Compactness**: Observations from the same cluster must be compact with one another, meaning the distance between them should be as small as possible.
+
+- **Separation**: Different clusters must be as far apart from one another as possible.
+
+**Therefore, to choose K we'll be looking into those via the Silhouette Score:**
+
+- Silhouette Score evaluates both **Separation** and **Compactness**. 
+- It goes from -1 to 1, the higher the better. 
 
 <p align="justify"> <i> As we're ranking customers in a list, there's no need to look into the more traditional classification metrics, such as accuracy, precision, recall, f1-score, aoc-roc curve, confusion matrix, etc.
 
+  
 Instead, **ranking metrics** will be used:
 
 - **Precision at K** : Shows the fraction of correct predictions made until K out of all predictions. 
