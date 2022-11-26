@@ -231,6 +231,8 @@ As seen above the LGBM model can provide much better results in comparison to th
 
 # 8. **Propensity Score List and Model Deployment**
 
+[![Metabase](https://img.shields.io/static/v1?style=for-the-badge&message=Metabase&color=509EE3&logo=Metabase&logoColor=FFFFFF&label=)](http://outletoapp-env.eba-ztruzhhu.us-east-1.elasticbeanstalk.com/public/dashboard/20d721e4-6c15-4538-896f-f3da4aff432b)
+
 <p align="justify"> The full list sorted by propensity score is available for download <a href="https://github.com/brunodifranco/project-insuricare-ranking/blob/main/insuricare_list.xlsx">here</a>. However, for other new future customers it was necessary to deploy the model. In this project Google Sheets and Render Cloud were chosen for that matter. The idea behind this is to facilitate the predictions access for any new given data, as those can be checked from anywhere and from any electronic device, as long as internet connection is available. The spreadsheet will return you the sorted propensity score for each client in the requested dataset, all you have to do is click on the "Propensity Score" button, then on "Get Prediction".
 
 <b> Click here to access the spreadsheet </b>[![Sheets](https://www.google.com/images/about/sheets-icon.svg)](https://docs.google.com/spreadsheets/d/1K2tJP6mVJwux4qret1Dde9gQ23KsDRGRl8eJbsigwic/edit?usp=sharing)
