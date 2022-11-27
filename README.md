@@ -3,7 +3,7 @@
 <p align="center">A clustering project</p>
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/66283452/204150853-c732bdf8-1651-4eb2-a27b-8bfc2fdfc02a.png" alt="drawing" width="450"/>
+  <img src="https://user-images.githubusercontent.com/66283452/204150853-c732bdf8-1651-4eb2-a27b-8bfc2fdfc02a.png" alt="drawing" width="450" height="550"/>
 </p>
 
 *Obs: The company and business problem are both fictitious, although the data is real.*
