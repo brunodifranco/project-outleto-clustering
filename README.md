@@ -32,6 +32,7 @@ With that report the Marketing Team will promote actions to each cluster, in ord
 The data was collected from Kaggle in the csv format. The initial features descriptions are available below:
 
 <div align="center">
+  
 | **Feature**          | **Definition** |
 |:--------------------:|----------------|
 |       InvoiceNo      | A 6-digit integral number uniquely assigned to each transaction |
@@ -42,6 +43,7 @@ The data was collected from Kaggle in the csv format. The initial features descr
 |       UnitPrice      | Unit price (product price per unit) |
 |       CustomerID     | Customer number (unique id assigned to each customer) |
 |       Country        | The name of the country where each customer residers |
+  
 </div>
 
 # 3. **Business Assumptions**
@@ -95,6 +97,7 @@ The data was collected from Kaggle in the csv format. The initial features descr
 In total, 10 new features were created by using the original ones: 
 
 <div align="center">
+  
 | **New Feature** | **Definition** |
 |:--------------------:|----------------|
 | Gross Revenue | Gross revenue for each customer, which is equal to quantity times unit price |
@@ -107,10 +110,11 @@ In total, 10 new features were created by using the original ones:
 | Quantity of Items | Total quantity of items purchased |
 | Returns | Amount of items returned |
 | Purchased and Returned Difference | Natural log of difference between items purchased and items returned | 
+  
 </div>
 
-# 6. **Machine Learning Models**
-<p align="justify"> In order to get better data separation a few dimensionality reduction techniques were be tested: PCA, UMAP and Tree-Based Embedding. Results were satisfactory with Tree-Based Embedding, which consists of:
+# 6. **Machine Learning Modeling**
+<p align="justify"> In order to get better data separation a few dimensionality reduction techniques were be tested: PCA, UMAP and Tree-Based Embedding. Results were satisfactory with Tree-Based Embedding, which consists of: </p>
 
 - Setting gross_revenue as a response variable, so it becomes a supervised learning problem.
 - Training a Random Forest (RF) model to predict gross_revenue using all other features.
@@ -122,92 +126,18 @@ In total four clustering algorithms were tested, for a cluster number varing fro
 - Agglomerative Hierarchical Clustering (HC)
 - DBSCAN 
 
-The models were evaluated by silhouette score, as well as clustering vizualization. DBSCAN had its parameters optimized with Bayesian Optimization, however because it provided a very high number of clusters it was withdrawn as a possible final model. Our maximum cluster number was set to 11, due to practical purposes for Outleto's Marketing Team, so they can come up with exclusive actions for each cluster. Results were quite similar for K-Means, GMM and HC with clusters from 8 to 11, however <b>KMeans</b> were chosen with <b>8</b> clusters, because its silhouette score is slightly better, being equal to 0.6168. 
-
- </p>
-
-
-## <i>Metrics Definition and Interpretation</i>
-ARRUMAR AQUI
-
-**In clustering problems, the hyperparameter tuning comes before modelling, as we're selecting the number of clusters (K) for most models.** There're two properties we look for when creating clusters:
-
-- **Compactness**: Observations from the same cluster must be compact with one another, meaning the distance between them should be as small as possible.
-
-- **Separation**: Different clusters must be as far apart from one another as possible.
-
-**Therefore, to choose K we'll be looking into those via the Silhouette Score:**
-
-- Silhouette Score evaluates both **Separation** and **Compactness**. 
-- It goes from -1 to 1, the higher the better. 
-
-<p align="justify"> <i> As we're ranking customers in a list, there's no need to look into the more traditional classification metrics, such as accuracy, precision, recall, f1-score, aoc-roc curve, confusion matrix, etc.
-
+<p align="justify"> The models were evaluated by silhouette score, as well as clustering vizualization. Our maximum cluster number was set to 11 due to practical purposes for Outleto's Marketing Team, so they can come up with exclusive actions for each cluster. DBSCAN had its parameters optimized with Bayesian Optimization, however because it provided a very high number of clusters it was withdrawn as a possible final model. Results were quite similar for K-Means, GMM and HC with clusters from 8 to 11, however <b>KMeans</b> were chosen with <b>8</b> clusters because its silhouette score is slightly better, being equal to 0.6168. Those 8 clusters names are <b> Insiders, Runners Up, Promising, Potentials, Need Attention, About to Sleep, At Risk </b> and <b> About to Lose </b>.
   
-Instead, **ranking metrics** will be used:
+## <i>Metrics Definition</i>
+There're two properties we look for when creating clusters:
 
-- **Precision at K** : Shows the fraction of correct predictions made until K out of all predictions. 
-  
-- **Recall at K** : Shows the fraction of correct predictions made until K out of all true examples. 
+- <b>Compactness</b>: Observations from the same cluster must be compact with one another, meaning the distance between them should be as small as possible.
 
-In addition, two curves can be plotted: 
+- <b>Separation</b>: Different clusters must be as far apart from one another as possible.
 
-- <b>Cumulative Gains Curve</b>, indicating the percentage of customers, ordered by probability score, containing a percentage of all customers interested in the new insurance. 
+<b>Silhouette Score</b> covers both these properties. It goes from -1 to 1, the higher the better.
 
-- <b>Lift Curve</b>, which indicates how many times the ML model is better than the baseline model (original model used by Insuricare). </i> </p>
-
-# 7. **Business and Financial Results**
-
-## 7.1. Business Results
-
-**1) By making 20,000 calls how many interested customers can Insuricare reach with the new model?**
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/66283452/198152035-48c27ead-53f8-440e-af92-f049456dac33.png" alt="drawing" width="1000"/>
-</p>
-
-<p align="justify"> 
-
-- 20,000 calls represents 26.24% of our database. So if the sales team were to make all these calls Insuricare would be able to contact 71.29% of customers interested in the new vehicle insurance, since 0.7129 is our recall at 20,000. </p>
-
-- As seen from the Lift Curve, our **LGBM model is 2.72 times better than the baseline model at 20,000 calls.** 
-
-**2) Now increasing the amount of calls to 40,000 how many interested customers can Insuricare reach with the new model?**
-
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/66283452/198152040-929e3f17-d07e-401a-892c-50bf9c01f475.png" alt="drawing" width="1000"/>
-</p>
-
-- 40,000 calls represents 52.48% of our database. So if the sales team were to make all these calls Insuricare would be able to contact 99.48% of customers interested in the new vehicle insurance, since 0.9948 is our recall at 40,000.
-
-- At 40,000 calls, our **LGBM model is around 1.89 times better than the baseline model.**  
-
-## 7.2. Expected Financial Results
-
-To explore the expected financial results of our model, let's consider a few assumptions:
-
-- The customer database that will be reached out is composed of 76,222 clients.
-- We expect 12.28% of these customers to be interested in the new vehicle insurance, since it's the percentage of interest people that participated in the Insuricare research. 
-- The annual premium for each of these new vehicle insurance customers will be US$ 2,630 yearly. *
-
-*<i> The annual premium of US$ 2,630 is set for realistic purposes, since it's the lowest and most common value in the dataset. </i>
-
-The expected financial results and comparisons are shown below:
-
-<div align="center">
-
-|    **Model**    |  **Annual Revenue - 20,000 calls** | **Annual Revenue - 40,000 calls** |  **Interested clients reached out - 20,000 calls** | **Interested clients reached out - 40,000 calls** |
-|:---------------:|:---:|:-----------------------------------:|:---:|:---------------------------------------:|
-|       LGBM      | US$ 17,515,800.00    |US$ 24,440,590.00          | 6660   |9293                  |
-|     Baseline    |  US$ 6,446,130.00    |US$ 12,894,890.00           | 2451  |4903                  |
-| $\Delta$ (LGBM, Baseline) |  11,069,670.00     |US$ 11,545,700.00         |  4209   |   4390                  |
-
-</div>
-
-<i> $\Delta$ (LGBM, Baseline) is the difference between models. </i>
-
-As seen above the LGBM model can provide much better results in comparison to the baseline model, with an annual financial result around 172% better for 20,000 calls and 89% better for 40,000 calls, which is exactly what was shown in the Lift Curve. 
-
-# 5. **Top Business Insights**
+# 7. **Top Business Insights**
 
  - ### 1st - Customers from Insiders are responsible for 58.3% of total items purchased.
 <p align="center">
@@ -230,35 +160,35 @@ As seen above the LGBM model can provide much better results in comparison to th
   
 ---
 
-# 8. **Propensity Score List and Model Deployment**
+# 8. **Final Report and Deployment**
 
-[![Metabase](https://img.shields.io/static/v1?style=for-the-badge&message=Metabase&color=509EE3&logo=Metabase&logoColor=FFFFFF&label=)](http://outletoapp-env.eba-ztruzhhu.us-east-1.elasticbeanstalk.com/public/dashboard/20d721e4-6c15-4538-896f-f3da4aff432b)
-
-<p align="justify"> The full list sorted by propensity score is available for download <a href="https://github.com/brunodifranco/project-insuricare-ranking/blob/main/insuricare_list.xlsx">here</a>. However, for other new future customers it was necessary to deploy the model. In this project Google Sheets and Render Cloud were chosen for that matter. The idea behind this is to facilitate the predictions access for any new given data, as those can be checked from anywhere and from any electronic device, as long as internet connection is available. The spreadsheet will return you the sorted propensity score for each client in the requested dataset, all you have to do is click on the "Propensity Score" button, then on "Get Prediction".
-
-<b> Click here to access the spreadsheet </b>[![Sheets](https://www.google.com/images/about/sheets-icon.svg)](https://docs.google.com/spreadsheets/d/1K2tJP6mVJwux4qret1Dde9gQ23KsDRGRl8eJbsigwic/edit?usp=sharing)
-
-<i> Because the deployment was made in a free cloud (Render) it could take a few minutes for the spreadsheet to provide a response, <b> in the first request. </b> In the following requests it should respond instantly. </i>
-
-</p>
-
-
+<p align="justify"> The final business report was built using Metabase, where there's a list of eligible customers to be a part of Insiders, as well as answers to the following questions previously inquired by Outleto's Marketing Team. This is how the report was built: </p>
+  
+- Firstly, a new PostgreSQL database was created in [Render Cloud](https://render.com/).
+- Then, the final dataframe containing all customers already classified in their respective clusters was saved in this PostgreSQL database.
+- Continuing, the Metabase App was set up in [AWS Elastic Beanstalk](https://aws.amazon.com/pt/elasticbeanstalk/).  
+- After that, the database was added in the Metabase App, making it possible to create the final business report.
+- Finally, this report became available for sharing.    
+  
+<b> Click here to access the Metabase App </b>[![Metabase](https://img.shields.io/static/v1?style=for-the-badge&message=Metabase&color=509EE3&logo=Metabase&logoColor=FFFFFF&label=)](http://outletoapp-env.eba-ztruzhhu.us-east-1.elasticbeanstalk.com/public/dashboard/20d721e4-6c15-4538-896f-f3da4aff432b)
+    
+<i> The list of customers that made it to insiders will also be available for download in csv format <a href="https://github.com/brunodifranco/project-insuricare-ranking/blob/main/insuricare_list.xlsx">here</a>, and the complete list of Outleto's customers is available for download <a href="https://github.com/brunodifranco/project-insuricare-ranking/blob/main/insuricare_list.xlsx">here</a> </i>. 
+ 
 # 9. **Conclusion**
 In this project the main objective was accomplished:
 
- <p align="justify"> <b> We managed to provide a list of new customers ordered by their buy propensity score and a spreadsheet that returns the buy propensity score for other new future customers. Now, the Sales Team can focus their attention on the 20,000 or 40,000 first customers on the list, and in the future focus on the top K customers of the new list. </b> In addition to that, five interesting and useful insights were found through Exploratory Data Analysis (EDA), so that those can be properly used by Insuricare, as well as Expected Financial Results. </p>
- 
+ <p align="justify"> <b> We managed to provide a business report using Metabase where there's a list of eligible customers to be a part of Insiders, as well as answers to the following questions previously inquired by Outleto's Marketing Team. With that report the Marketing Team will promote actions to each cluster, in order to increase revenue, but of course focusing mostly in the Insiders cluster, since they represent 53.5% of the total gross revenue. In addition to that, some useful business insights were found. </p>
+  
 # 10. **Next Steps**
 <p align="justify"> Further on, this solution could be improved by a few strategies:
   
- - Conducting more market researches, so that more useful information on customers could be collected, since there was a lack of meaningful variables.
+- Requesting more data from Outleto, such as product associated data. 
   
- - Applying <a href="https://builtin.com/data-science/step-step-explanation-principal-component-analysis">Principal Component Analysis (PCA) </a> in the dataset.
-  
- - Try other classification algorithms that could better capture the phenomenon.
+- Creating even more features. 
+
+- Making the final report even more automatic for when new data comes in, so it could be run everytime requested and the data instantly saved in the PostgreSQL database. This could be done by using the Papermill library, alongide other AWS services.  
 
 # Contact
 
 - brunodifranco99@gmail.com
 - [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/BrunoDiFrancoAlbuquerque/)
-
