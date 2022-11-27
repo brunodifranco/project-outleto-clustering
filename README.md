@@ -1,11 +1,9 @@
-IN PROGRESS 
-
 <h1 align="center">Customer loyalty program for E-commerce</h1>
 
 <p align="center">A clustering project</p>
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/66283452/204003651-a72b8c68-b360-40cb-8a03-eb21c2dcd3fa.jpeg" alt="drawing" width="850"/>
+  <img src="https://user-images.githubusercontent.com/66283452/204150853-c732bdf8-1651-4eb2-a27b-8bfc2fdfc02a.png" alt="drawing" width="450"/>
 </p>
 
 *Obs: The company and business problem are both fictitious, although the data is real.*
@@ -13,7 +11,7 @@ IN PROGRESS
 *The in-depth Python code explanation is available in [this](https://github.com/brunodifranco/project-insuricare-ranking/blob/main/insuricare.ipynb) Jupyter Notebook.*
 
 # 1. **Outleto and Business Problem**
-<p align="justify"> Outleto is a multibrand outlet company, meaning it sells second line products of various companies at lower prices, through an E-commerce platform. Outleto's Marketing Team noticed that some customers tend to buy more expensive products, in higher quantities and more frequently than others, therefore contributing to a high share of Outleto's total gross revenue. Because of that, Outleto's Marketing Team wishes to launch a customer loyalty program, dividing the 5,702 customers in clusters, on which the best customers will be placed in a cluster named Insiders. 
+<p align="justify"> Outleto is a multibrand outlet company, meaning it sells second line products of various companies at lower prices, through an E-commerce platform. Outleto's Marketing Team noticed that some customers tend to buy more expensive products, in higher quantities and more frequently than others, therefore contributing to a higher share of Outleto's total gross revenue. Because of that, Outleto's Marketing Team wishes to launch a customer loyalty program, dividing the 5,702 customers in clusters, on which the best customers will be placed in a cluster named Insiders. 
 
 To achieve this goal, the Data Science Team was requested to provide a business report regarding the clusters, containing a list of customers that will participate in Insiders, as well as answers to the following questions: 
   
@@ -21,15 +19,13 @@ To achieve this goal, the Data Science Team was requested to provide a business 
 ##### 2) **How many clusters were created?**
 ##### 3) **How are the customers distributed amongst the clusters?**
 ##### 4) **What are these customers' main features?**
-##### 5) **What's the gross revenue percentage coming from Insiders? and what about other clusters?**
+##### 5) **What's the gross revenue percentage coming from Insiders? And what about other clusters?**
 ##### 6) **How many items were purchased by each cluster?**
-   
-##### 7) **What are the requirements for a customer to be a part of Insiders? and for a customer to be removed?**
-     
+
 With that report the Marketing Team will promote actions to each cluster, in order to increase revenue, but of course focusing mostly in the Insiders cluster. </p>
 
 # 2. **Data Overview**
-The data was collected from Kaggle in the csv format. The initial features descriptions are available below:
+The data was collected from Kaggle in the CSV format. The initial features descriptions are available below:
 
 <div align="center">
   
@@ -51,7 +47,7 @@ The data was collected from Kaggle in the csv format. The initial features descr
 - All observations on which unit_price <= 0 were removed, as we're assuming those are gifts when unit_price = 0, and when unit_price < 0 it's described as "Adjust bad debt".  
 - Some stock_code identifications weren't actual products, therefore they were removed.  
 - Both description and country columns were removed, since those aren't relevant when modelling.  
-- <p align="justify">Customer number 16446 was removed because he(she) bought 80995 items and returned them in the same day, leading to extraordinary values in other features. Other 12 customers were removed because they returned all items bought. In addition to that, three other users were also removed because they were considered to be data inconsistencies, since they had their return values greater than quantity of items bought, which doesn't make sense. These 16 were named "bad users".<p>
+- <p align="justify">Customer number 16446 was removed because he (she) bought 80995 items and returned them in the same day, leading to extraordinary values in other features. Other 12 customers were removed because they returned all items bought. In addition to that, three other users were also removed because they were considered to be data inconsistencies, since they had their return values greater than quantity of items bought, which doesn't make sense. These 16 were named "bad users".<p>
 
 # 4. **Solution Plan**
 ## 4.1. How was the problem solved?
@@ -78,9 +74,9 @@ The data was collected from Kaggle in the csv format. The initial features descr
 
 - <b> Model Evaluation</b>: Evaluating the model by using Silhouette Score and Silhouette Visualization.
 
-- <b>Cluster Exploratory Data Analysis</b>: Exploring the clusters to obtain business experience and to find useful business insights. In addition to that, this step also helped building the business report. The top business insights found are available at <a href="https://github.com/brunodifranco/project-insuricare-ranking#5-top-business-insights"> Section 5</a>. 
+- <b>Cluster Exploratory Data Analysis</b>: Exploring the clusters to obtain business experience and to find useful business insights. In addition to that, this step also helped building the business report. The top business insights found are available in <a href="https://github.com/brunodifranco/project-insuricare-ranking#5-top-business-insights"> Section 5</a>. 
 
-- <p align="justify"> <b>Final Report and Deployment </b>: Providing a business report regarding the clusters, containing a list of customers that will participate in Insiders, as well as answering those previous questions. This is the project's <b>Data Science Product</b> and it was deployed in a <a href="https://www.metabase.com/">Metabase</a> application, so that it could be acessed from anywhere. More information in <a href="https://github.com/brunodifranco/project-insuricare-ranking#7-business-and-financial-results"> Section 7</a>.</p>
+- <p align="justify"> <b>Final Report and Deployment </b>: Providing a business report regarding the clusters, containing a list of customers that will participate in Insiders, as well as answering those previous questions. This is the project's <b>Data Science Product</b> and it was deployed in a <a href="https://www.metabase.com/">Metabase</a> application, so that it could be accessed from anywhere. More information in <a href="https://github.com/brunodifranco/project-insuricare-ranking#7-business-and-financial-results"> Section 7</a>.</p>
   
 ## 4.2. Tools and techniques used:
 - [Python 3.10.8](https://www.python.org/downloads/release/python-3108/), [Pandas](https://pandas.pydata.org/), [Matplotlib](https://matplotlib.org/), [Seaborn](https://seaborn.pydata.org/), [Sklearn](https://scikit-learn.org/stable/), [SciPy](https://scipy.org/) and [Pandas Profiling](https://pypi.org/project/pandas-profiling/).
@@ -114,19 +110,19 @@ In total, 10 new features were created by using the original ones:
 </div>
 
 # 6. **Machine Learning Modeling**
-<p align="justify"> In order to get better data separation a few dimensionality reduction techniques were be tested: PCA, UMAP and Tree-Based Embedding. Results were satisfactory with Tree-Based Embedding, which consists of: </p>
+<p align="justify"> In order to get better data separation a few dimensionality reduction techniques were tested: PCA, UMAP and Tree-Based Embedding. The Results were satisfactory with Tree-Based Embedding, which consists of: </p>
 
 - Setting gross_revenue as a response variable, so it becomes a supervised learning problem.
 - Training a Random Forest (RF) model to predict gross_revenue using all other features.
 - Plotting the embedding based on RF's leaves.
 
-In total four clustering algorithms were tested, for a cluster number varing from 2 to 24:
+In total four clustering algorithms were tested, for a cluster number varying from 2 to 24:
 - K-Means
 - Gaussian Mixture Models (GMM) with Expectation–Maximization (EM)
 - Agglomerative Hierarchical Clustering (HC)
 - DBSCAN 
 
-<p align="justify"> The models were evaluated by silhouette score, as well as clustering vizualization. Our maximum cluster number was set to 11 due to practical purposes for Outleto's Marketing Team, so they can come up with exclusive actions for each cluster. DBSCAN had its parameters optimized with Bayesian Optimization, however because it provided a very high number of clusters it was withdrawn as a possible final model. Results were quite similar for K-Means, GMM and HC with clusters from 8 to 11, however <b>KMeans</b> were chosen with <b>8</b> clusters because its silhouette score is slightly better, being equal to 0.6168. Those 8 clusters names are <b> Insiders, Runners Up, Promising, Potentials, Need Attention, About to Sleep, At Risk </b> and <b> About to Lose </b>.
+<p align="justify"> The models were evaluated by silhouette score, as well as clustering visualization. Our maximum cluster number was set to 11 due to practical purposes for Outleto's Marketing Team, so they can come up with exclusive actions for each cluster. DBSCAN had its parameters optimized with Bayesian Optimization, however, because it provided a very high number of clusters it was withdrawn as a possible final model. The results were quite similar for K-Means, GMM and HC with clusters from 8 to 11, however <b>KMeans</b> were chosen with <b>8</b> clusters because its silhouette score is slightly better, being equal to 0.6168. Those 8 cluster names are <b> Insiders, Runners Up, Promising, Potentials, Need Attention, About to Sleep, At Risk </b> and <b> About to Lose </b>.
   
 ## <i>Metrics Definition</i>
 There're two properties we look for when creating clusters:
@@ -139,13 +135,13 @@ There're two properties we look for when creating clusters:
 
 # 7. **Top Business Insights**
 
- - ### 1st - Customers from Insiders are responsible for 58.3% of total items purchased.
+ - ### 1st - Customers from Insiders are responsible for 58.3% of the total items purchased.
 <p align="center">
   <img src="https://user-images.githubusercontent.com/66283452/204071720-ab1d3d7c-e603-48e7-a13e-1cc0e97a4436.png" alt="drawing" width="850"/>
 </p>
 
 --- 
-- ### 2nd - Customers from Insiders are responsible for 53.5% of the of total gross revenue.
+- ### 2nd - Customers from Insiders are responsible for 53.5% of the total gross revenue.
 <p align="center">
   <img src="https://user-images.githubusercontent.com/66283452/204071721-5af58f13-3bcc-420c-87a8-7a5ececfe2a2.png" alt="drawing" width="850"/>
 </p>
@@ -162,22 +158,22 @@ There're two properties we look for when creating clusters:
 
 # 8. **Final Report and Deployment**
 
-<p align="justify"> The final business report was built using Metabase, where there's a list of eligible customers to be a part of Insiders, as well as answers to the following questions previously inquired by Outleto's Marketing Team. This is how the report was built: </p>
+<p align="justify"> The final business report was built using Metabase, where there's a list of eligible customers to be a part of Insiders, as well as answers to the following questions previously demanded by Outleto's Marketing Team. This is how the report was built: </p>
   
 - Firstly, a new PostgreSQL database was created in [Render Cloud](https://render.com/).
-- Then, the final dataframe containing all customers already classified in their respective clusters was saved in this PostgreSQL database.
+- Then, the final data containing all customers already classified in their respective clusters was saved in this PostgreSQL database.
 - Continuing, the Metabase App was set up in [AWS Elastic Beanstalk](https://aws.amazon.com/pt/elasticbeanstalk/).  
 - After that, the database was added in the Metabase App, making it possible to create the final business report.
 - Finally, this report became available for sharing.    
   
 <b> Click here to access the Metabase App </b>[![Metabase](https://img.shields.io/static/v1?style=for-the-badge&message=Metabase&color=509EE3&logo=Metabase&logoColor=FFFFFF&label=)](http://outletoapp-env.eba-ztruzhhu.us-east-1.elasticbeanstalk.com/public/dashboard/20d721e4-6c15-4538-896f-f3da4aff432b)
     
-<i> The list of customers that made it to insiders will also be available for download in csv format <a href="https://github.com/brunodifranco/project-insuricare-ranking/blob/main/insuricare_list.xlsx">here</a>, and the complete list of Outleto's customers is available for download <a href="https://github.com/brunodifranco/project-insuricare-ranking/blob/main/insuricare_list.xlsx">here</a> </i>. 
+<i> The list of customers that made it to insiders will also be available for download in CSV format <a href="https://github.com/brunodifranco/project-insuricare-ranking/blob/main/insuricare_list.xlsx">here</a>, and the complete list of Outleto's customers is available for download <a href="https://github.com/brunodifranco/project-insuricare-ranking/blob/main/insuricare_list.xlsx">here</a> </i>. 
  
 # 9. **Conclusion**
 In this project the main objective was accomplished:
 
- <p align="justify"> <b> We managed to provide a business report using Metabase where there's a list of eligible customers to be a part of Insiders, as well as answers to the following questions previously inquired by Outleto's Marketing Team. With that report the Marketing Team will promote actions to each cluster, in order to increase revenue, but of course focusing mostly in the Insiders cluster, since they represent 53.5% of the total gross revenue. In addition to that, some useful business insights were found. </p>
+ <p align="justify"> <b> We managed to provide a business report using Metabase where there's a list of eligible customers to be a part of Insiders, as well as answers to the following questions previously demanded by Outleto's Marketing Team. With that report the Marketing Team will promote actions to each cluster, in order to increase revenue, but of course focusing mostly in the Insiders cluster, since they represent 53.5% of the total gross revenue. In addition to that, some useful business insights were found. </b> </p>
   
 # 10. **Next Steps**
 <p align="justify"> Further on, this solution could be improved by a few strategies:
@@ -186,7 +182,7 @@ In this project the main objective was accomplished:
   
 - Creating even more features. 
 
-- Making the final report even more automatic for when new data comes in, so it could be run everytime requested and the data instantly saved in the PostgreSQL database. This could be done by using the Papermill library, alongide other AWS services.  
+- Making the final report even more automatic for when new data comes in, so it could be run every time requested and the data instantly saved in the PostgreSQL database. This could be done by using the Papermill library, alongside other AWS services.  </p>
 
 # Contact
 
