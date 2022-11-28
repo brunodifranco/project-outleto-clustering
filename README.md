@@ -62,7 +62,7 @@ The data was collected from Kaggle in the CSV format. The initial features descr
 
 - <b> Feature Engineering</b>: Creating new features from the original ones, so that those could be used in the ML model. More information in <a href="https://github.com/brunodifranco/project-outleto-clustering#5-feature-engineering">Section 5</a>.</p>
 
-- <p align="justify"> <b> Exploratory Data Analysis (EDA)</b>: Exploring the data in order to obtain business experience, look for data inconsistencies, useful business insights and find important features for the ML model. This was done by using the <a href="https://pypi.org/project/pandas-profiling/">Pandas Profiling</a> library. Two EDA profile reports are available <a href="https://github.com/brunodifranco/project-outleto-clustering/tree/main/pandas-profiling-reports"> here</a>, one still with the bad users and one without them. 
+- <p align="justify"> <b> Exploratory Data Analysis (EDA)</b>: Exploring the data in order to obtain business experience, look for data inconsistencies, useful business insights and find important features for the ML model. This was done by using the <a href="https://pypi.org/project/pandas-profiling/">Pandas Profiling</a> library. Two EDA profile reports are available for download <a href="https://github.com/brunodifranco/project-outleto-clustering/tree/main/pandas-profiling-reports"> here</a>, one still with the bad users and one without them. 
 
 - <b> Data Preparation</b>: Applying <a href="https://www.atoti.io/articles/when-to-perform-a-feature-scaling/">Rescaling Techniques</a> in the data.
 
