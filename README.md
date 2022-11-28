@@ -11,7 +11,7 @@
 *The in-depth Python code explanation is available in [this](https://github.com/brunodifranco/project-outleto-clustering/blob/main/notebooks/cluster.ipynb) Jupyter Notebook.*
 
 # 1. **Outleto and Business Problem**
-<p align="justify"> Outleto is a multibrand outlet company, meaning it sells second line products of various companies at lower prices, through an E-commerce platform. Outleto's Marketing Team noticed that some customers tend to buy more expensive products, in higher quantities and more frequently than others, therefore contributing to a higher share of Outleto's total gross revenue. Because of that, Outleto's Marketing Team wishes to launch a customer loyalty program, dividing the 5,702 customers in clusters, on which the best customers will be placed in a cluster named Insiders. </p>
+<p align="justify"> Outleto is a multibrand outlet company, meaning it sells second line products of various companies at lower prices, through an E-commerce platform. Outleto's Marketing Team noticed that some customers tend to buy more expensive products, in higher quantities and more frequently than others, therefore contributing to a higher share of Outleto's total gross revenue. Because of that, the Marketing Team wishes to launch a customer loyalty program, dividing the 5,702 customers in clusters, on which the best customers will be placed in a cluster named Insiders. </p>
 
 <p align="justify"> To achieve this goal, the Data Science Team was requested to provide a business report regarding the clusters, containing a list of customers that will participate in Insiders, as well as answers to the following questions: </p>
   
