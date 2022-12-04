@@ -13,7 +13,7 @@
 # 1. **Outleto and Business Problem**
 <p align="justify"> Outleto is a multibrand outlet company, meaning it sells second line products of various companies at lower prices, through an E-commerce platform. Outleto's Marketing Team noticed that some customers tend to buy more expensive products, in higher quantities and more frequently than others, therefore contributing to a higher share of Outleto's total gross revenue. Because of that, the Marketing Team wishes to launch a customer loyalty program, dividing the 5,702 customers in clusters, on which the best customers will be placed in a cluster named Insiders. </p>
 
-<p align="justify"> To achieve this goal, the Data Science Team was requested to provide a business report regarding the clusters, containing a list of customers that will participate in Insiders, as well as answers to the following questions: </p>
+<p align="justify"> To achieve this goal, the Data Science Team was requested to provide a list of customers that will participate in Insiders, as well as a business report regarding the clusters, answering the following questions: </p>
   
 ##### 1) **How many customers will be a part of Insiders?**
 ##### 2) **How many clusters were created?**
@@ -22,7 +22,7 @@
 ##### 5) **What's the gross revenue percentage coming from Insiders? And what about other clusters?**
 ##### 6) **How many items were purchased by each cluster?**
 
-With that report the Marketing Team will promote actions to each cluster, in order to increase revenue, but of course focusing mostly in the Insiders cluster.
+With that list and report the Marketing Team will promote actions to each cluster, in order to increase revenue, but of course focusing mostly in the Insiders cluster.
 
 # 2. **Data Overview**
 The data was collected from Kaggle in the CSV format. The initial features descriptions are available below:
@@ -76,14 +76,14 @@ The data was collected from Kaggle in the CSV format. The initial features descr
 
 - <b>Cluster Exploratory Data Analysis</b>: Exploring the clusters to obtain business experience and to find useful business insights. In addition to that, this step also helped building the business report. The top business insights found are available in <a href="https://github.com/brunodifranco/project-outleto-clustering#7-top-business-insights"> Section 7</a>. 
 
-- <p align="justify"> <b>Final Report and Deployment </b>: Providing a business report regarding the clusters, containing a list of customers that will participate in Insiders, as well as answering those previous questions. This is the project's <b>Data Science Product</b> and it was deployed in a <a href="https://www.metabase.com/">Metabase</a> application, so that it could be accessed from anywhere. More information in <a href="https://github.com/brunodifranco/project-outleto-clustering#8-final-report-and-deployment"> Section 8</a>.</p>
-  
+- <p align="justify"> <b>Final Report and Deployment</b>: Providing a business report regarding the clusters, as well as a list of customers that will participate in Insiders. This report was built using <a href="https://powerbi.microsoft.com/pt-br/">Power BI</a>, as well as <a href="https://render.com/">Render Cloud</a> and <a href="https://www.google.com/intl/pt-BR/drive/">Google Drive</a>, so that it could be accessed from anywhere. More information in <a href="https://github.com/brunodifranco/project-outleto-clustering#8-final-report-and-deployment"> Section 8</a>.</p>
+
 ## 4.2. Tools and techniques used:
 - [Python 3.10.8](https://www.python.org/downloads/release/python-3108/), [Pandas](https://pandas.pydata.org/), [Matplotlib](https://matplotlib.org/), [Seaborn](https://seaborn.pydata.org/), [Sklearn](https://scikit-learn.org/stable/), [SciPy](https://scipy.org/) and [Pandas Profiling](https://pypi.org/project/pandas-profiling/).
 - [SQL](https://www.w3schools.com/sql/) and [PostgresSQL](https://www.postgresql.org/).
 - [Jupyter Notebook](https://jupyter.org/) and [VSCode](https://code.visualstudio.com/).
-- [Metabase](https://www.metabase.com/). 
-- [Render Cloud](https://render.com/) and [AWS Elastic Beanstalk](https://aws.amazon.com/pt/elasticbeanstalk/).
+- [Power BI](https://powerbi.microsoft.com/pt-br/). 
+- [Render Cloud](https://render.com/) and [Google Drive](https://www.google.com/intl/pt-BR/drive/).
 - [Git](https://git-scm.com/) and [Github](https://github.com/).
 - [Exploratory Data Analysis (EDA)](https://towardsdatascience.com/exploratory-data-analysis-8fc1cb20fd15). 
 - [Techniques for Feature Selection](https://machinelearningmastery.com/feature-selection-with-real-and-categorical-data/).
@@ -158,22 +158,23 @@ There're two properties we look for when creating clusters:
 
 # 8. **Final Report and Deployment**
 
-<p align="justify"> The final business report was built using Metabase, where there's a list of eligible customers to be a part of Insiders, as well as answers to the following questions previously demanded by Outleto's Marketing Team. This is how the report was built: </p>
+<p align="justify"> The final business report was built using Power BI, containing answers to the following questions previously demanded by Outleto's Marketing Team. This is how the report was built: </p>
   
-- Firstly, a new PostgreSQL database was created in [Render Cloud](https://render.com/).
+- Firstly, a new PostgreSQL database was created in Render Cloud.
 - Then, the final data containing all customers already classified in their respective clusters was saved in this PostgreSQL database.
-- Continuing, the Metabase App was set up in [AWS Elastic Beanstalk](https://aws.amazon.com/pt/elasticbeanstalk/).  
-- After that, the database was added in the Metabase App, making it possible to create the final business report.
-- Finally, this report became available for sharing.    
+- Continuing, the database was added in Power BI, making it possible to create the final business report, where it was saved in PDF format.
+- Finally, the report was uploaded to Google Drive, so it could be shared.
   
-<b> Click here to access the Metabase App </b>[![Metabase](https://img.shields.io/static/v1?style=for-the-badge&message=Metabase&color=509EE3&logo=Metabase&logoColor=FFFFFF&label=)](http://outletoapp-env.eba-ztruzhhu.us-east-1.elasticbeanstalk.com/public/dashboard/20d721e4-6c15-4538-896f-f3da4aff432b)
-    
-<i> The list of customers that made it to insiders will also be available for download in CSV format <a href="https://github.com/brunodifranco/project-outleto-clustering/blob/main/lists/insiders_list.csv">here</a>, and the complete list of Outleto's customers is available for download <a href="https://github.com/brunodifranco/project-outleto-clustering/blob/main/lists/full_list.csv">here</a> </i>. 
+<b> Click here to access the report: </b>[![Google Drive](https://img.shields.io/badge/Google%20Drive-4285F4?style=for-the-badge&logo=googledrive&logoColor=white)](https://drive.google.com/file/d/1Ys3bbyh2evWvzbG5mXlM6MrH-z6neXmb/view)
+
+<p align="justify"> <b> Whereas for the list of customers that made it to insiders it was saved in CSV format, and it's available <a href="https://github.com/brunodifranco/project-outleto-clustering/blob/main/lists/insiders_list.csv">here</a> </b>. </p>
+   
+<i> The complete list of Outleto's customers is also available for download <a href="https://github.com/brunodifranco/project-outleto-clustering/blob/main/lists/full_list.csv">here</a> </i>. 
  
 # 9. **Conclusion**
 In this project the main objective was accomplished:
 
- <p align="justify"> <b> We managed to provide a business report using Metabase where there's a list of eligible customers to be a part of Insiders, as well as answers to the following questions previously demanded by Outleto's Marketing Team. With that report the Marketing Team will promote actions to each cluster, in order to increase revenue, but of course focusing mostly in the Insiders cluster, since they represent 53.5% of the total gross revenue. In addition to that, some useful business insights were found. </b> </p>
+ <p align="justify"> <b> We managed to provide a business report using Power BI, containing answers to the questions previously demanded by Outleto's Marketing Team, as well as a list of eligible customers to be a part of Insiders. With that report the Marketing Team will promote actions to each cluster, in order to increase revenue, but of course focusing mostly in the Insiders cluster, since they represent 53.5% of the total gross revenue. In addition to that, some useful business insights were found. </b> </p>
   
 # 10. **Next Steps**
 <p align="justify"> Further on, this solution could be improved by a few strategies:
@@ -182,7 +183,7 @@ In this project the main objective was accomplished:
   
 - Creating even more features. 
 
-- Making the final report even more automatic for when new data comes in, so it could be run every time requested and the data instantly saved in the PostgreSQL database. This could be done by using the Papermill library, alongside other AWS services.  </p>
+- Making the final report even more automatic for when new data comes in, so it could be run every time requested and the data instantly saved in the PostgreSQL database. This could be done by using the Papermill library.  </p>
 
 # Contact
 
