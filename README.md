@@ -1,6 +1,6 @@
-<h1 align="center">Customer loyalty program for E-commerce</h1>
+<h1 align="center">Customer Loyalty Program for E-commerce</h1>
 
-<p align="center">A clustering project</p>
+<p align="center">A Clustering Project</p>
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/66283452/204150853-c732bdf8-1651-4eb2-a27b-8bfc2fdfc02a.png" alt="drawing" width="450" height="550"/>
