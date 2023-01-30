@@ -164,9 +164,14 @@ There're two properties we look for when creating clusters:
 - Then, the final data containing all customers already classified in their respective clusters was saved in this PostgreSQL database.
 - Continuing, the database was added in Power BI, making it possible to create the final business report, where it was saved in PDF format.
 - Finally, the report was uploaded to Google Drive, so it could be shared.
-  
-<b> Click here to access the report: </b>[![Google Drive](https://img.shields.io/badge/Google%20Drive-4285F4?style=for-the-badge&logo=googledrive&logoColor=white)](https://drive.google.com/file/d/1Ys3bbyh2evWvzbG5mXlM6MrH-z6neXmb/view)
+ 
+ <div align="center">
 
+|         **Click to access the report**        |
+|:------------------------:|
+|        [![Google Drive](https://img.shields.io/badge/Google%20Drive-4285F4?style=for-the-badge&logo=googledrive&logoColor=white)](https://drive.google.com/file/d/1Ys3bbyh2evWvzbG5mXlM6MrH-z6neXmb/view)
+</div>
+ 
 <p align="justify"> <b> Whereas for the list of customers that made it to insiders it was saved in CSV format, and it's available <a href="https://github.com/brunodifranco/project-outleto-clustering/blob/main/lists/insiders_list.csv">here</a> </b>. </p>
    
 <i> The complete list of Outleto's customers is also available for download <a href="https://github.com/brunodifranco/project-outleto-clustering/blob/main/lists/full_list.csv">here</a> </i>. 
