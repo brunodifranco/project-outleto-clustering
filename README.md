@@ -167,7 +167,7 @@ There're two properties we look for when creating clusters:
  
  <div align="center">
 
-|         **Click to access the report**        |
+|         **Click below to access the report**        |
 |:------------------------:|
 |        [![Google Drive](https://img.shields.io/badge/Google%20Drive-4285F4?style=for-the-badge&logo=googledrive&logoColor=white)](https://drive.google.com/file/d/1Ys3bbyh2evWvzbG5mXlM6MrH-z6neXmb/view)
 </div>
