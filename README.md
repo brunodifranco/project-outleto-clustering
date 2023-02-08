@@ -169,7 +169,7 @@ There're two properties we look for when creating clusters:
 
 |         **Click below to access the report**        |
 |:------------------------:|
-|        [![Google Drive](https://img.shields.io/badge/Google%20Drive-4285F4?style=for-the-badge&logo=googledrive&logoColor=white)](https://drive.google.com/file/d/1Ys3bbyh2evWvzbG5mXlM6MrH-z6neXmb/view)
+|        [![Power BI](https://img.shields.io/badge/PowerBI-F2C811?style=for-the-badge&logo=Power%20BI&logoColor=white)](https://drive.google.com/file/d/1Ys3bbyh2evWvzbG5mXlM6MrH-z6neXmb/view)
 </div>
  
 <p align="justify"> <b> Whereas for the list of customers that made it to insiders it was saved in CSV format, and it's available <a href="https://github.com/brunodifranco/project-outleto-clustering/blob/main/lists/insiders_list.csv">here</a> </b>. </p>
